@@ -1,0 +1,27 @@
+{
+    "compilerOptions":
+    {
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "declaration": false,
+      "experimentalDecorators": true,
+      "importHelpers": true,
+      "lib": [
+        "es5",
+        "es2015.promise",
+        "es2015.core",
+        "es6",
+        "es2017"
+      ],
+      "module": "commonjs",
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "outDir": "lib",
+      "skipLibCheck": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "target": "es2017"
+    },
+    "include": [
+      "src"
+    ]
+  }
