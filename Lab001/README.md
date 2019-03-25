@@ -1,12 +1,14 @@
 # TERRA 10 Serverless labs
 
-## Lab 001 - Creating your first project
+## Lab 001 - Your first Serverless project
 
 ## Boiler up your project
-* run:  _npm install serverless -g_
-* run:  _serverless create --template aws-nodejs-typescript_
-* run:  _npm install_
-
+run:
+``` 
+npm install serverless -g
+serverless create --template aws-nodejs-typescript
+npm install
+```
 What happened ? This created a boilerplate Serverless application that is technically ready to be deployed. 
 
 Lets check the result:
@@ -28,12 +30,21 @@ Inspect:
 Actions:
 * change name from _aws-nodejs-typescript_ to _t10*-serverless_ with an unique ID
 * add the following elements to provider section:
-    * region: eu-west-3
-    * stage: dev
-    * versionFunctions: false
-    * logRetentionInDays: 5
-
-to make sure we have an unique project name, deploy in the correct AWS region, define our stage, disable versioning (otherwise we remain old versions ) and make sure we dont store the (CloudWatch) logging forever
+``` 
+provider:
+  region: eu-west-3
+  stage: dev
+  versionFunctions: false
+  logRetentionInDays: 5
+  deploymentBucket:
+    name: serverlessdeployment.${self:provider.region}.terra10.io
+```
+This:
+* deploy in the correct AWS region
+* define our stage, which is DEV by default
+* disable versioning (otherwise we remain old versions of our Lambdas) 
+* Make sure we dont store the (CloudWatch) logging forever
+* configure a fixed S3 bucket for the Serverless deployments
 
 ## package.json
 The node/npm configuration for your package dev, build and deploy. Check the dependencies and devDependencies section. They summarize the packages used for development and runtime.
@@ -45,8 +56,10 @@ Never edit, never touch, go away! Just check in after npm install and be afraid!
 Our first generated function doing nothing much, but enjoy and if you are brave try changing the message result
 
 ## Let's roll
-Action:
-* run:  _serverless invoke local --function hello_ and check the result
+Run and check the result:
+``` 
+serverless invoke local --function hello
+```
 Explanation:
 * We use the serverless framework and webpack plugin to execute the typescript function locally
 
@@ -71,7 +84,9 @@ Let's run Typescript compile to check if our code is decent:
 
 We might see an error which shows the example template is not really clean code. The handler function, which is the entry from API Gateway to the AWS Lambda function contains a variable context which is never used. Our new tsconfig.json does not allow this so: 
 * add "_" in front of context, making the result like:
-  _export const hello: Handler = (event: APIGatewayEvent, _context: Context, cb: Callback) => {_
+``` 
+export const hello: Handler = (event: APIGatewayEvent, _context: Context, cb: Callback) => {
+```
 * run: _tsc_
 * check the /lib folder to see the compiled Javascript result which the Serverless framework will use
 

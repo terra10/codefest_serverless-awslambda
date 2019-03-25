@@ -1,0 +1,18 @@
+Resources:
+  DYNAMO:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      TableName: ${file(./serverless.yml):service.name}
+      SSESpecification:
+        SSEEnabled: true
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: false
+      AttributeDefinitions:
+      -
+        AttributeName: "identification"
+        AttributeType: "S"
+      KeySchema:
+      -
+        AttributeName: "identification"
+        KeyType: "HASH"
+      BillingMode: PAY_PER_REQUEST

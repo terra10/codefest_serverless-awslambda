@@ -1,0 +1,27 @@
+service:
+  name: t10a-serverless
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-3
+  stage: dev
+  versionFunctions: false
+  logRetentionInDays: 5
+  deploymentBucket:
+    name: serverlessdeployment.${self:provider.region}.terra10.io
+
+functions:
+  hello:
+    handler: lib/handler.hello
+    events:
+    - http:
+        method: get
+        path: hello
+
+resources:
+  - ${file(resources/resources-dynamodb.yml)}
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack

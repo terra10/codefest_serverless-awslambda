@@ -1,6 +1,6 @@
 # TERRA 10 Serverless labs
 
-## Lab 00 - Preparing your stuff
+## Lab 000 - Preparing your stuff
 
 * Make sure your in the root of /terra10-labs-serverless
 * check your Node version is 8+ with node --version
