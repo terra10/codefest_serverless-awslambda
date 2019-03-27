@@ -21,4 +21,4 @@ Redeploy and you should now see the value API Key change to _Required_. When you
 
 So to get this working we will need to send the API key in our request. Retrieve the key from the AWS API Gateway console: https://eu-west-3.console.aws.amazon.com/apigateway/home#/api-keys and add it to your Postman request
 
-![Alt text](./images/lab004.postmanOK.png?raw=true "no API key")
+![Alt text](./images/lab004.postmanOK.png?raw=true "Postman result")
