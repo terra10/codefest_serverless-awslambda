@@ -69,8 +69,8 @@ We dont want all the functions in our root folder, so let's:
 * move handler.ts to /src/handler.ts
 
 Since we are going to use TypeScript we want tslint for nice code, so:
-* run: _npm install ts-lint --save-dev_
-* create /ts-lint.json and copy the content from /Lab001/references
+* run: _npm install tslint --save-dev_
+* create /tslint.json and copy the content from /Lab001/references
 
 The default tsconfig.json is a bit minimalistic, so:
 * replace /tsconfig.json with the file from /Lab001/references
