@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "postStartRegistratie POST request message",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "wgnummer": {
+            "description": "Werkgeversnummer",
+            "type": [
+                "string"
+            ],
+            "pattern": "[0-9]{1,6}"
+        },
+        "postcode": {
+            "description": "De postcode van de werkgever zijn statutair adres",
+            "type": "string"
+        },
+        "huisnummer": {
+            "description": "Het huisnummer van de werkgever zijn statutair adres",
+            "type": "number",
+            "minimum": 1
+        },
+        "contact": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties":
+            {
+                "contactMode": {
+                    "enum": [
+                        "afdeling",
+                        "persoon"
+                    ],
+                    "type": "string"
+                },
+                "afdeling": { "type": "string" },
+                "geslacht": {
+                    "enum": [
+                        "meneer",
+                        "mevrouw"
+                    ],
+                    "type": "string"
+                },
+                "voorletters": { "type": "string" },
+                "tussenvoegsel": { "type": "string" },
+                "achternaam": { "type": "string" }
+            },
+            "required": [ "afdeling", "geslacht", "voorletters", "tussenvoegsel", "achternaam" ]
+        }
+    },
+    "required": [ "wgnummer", "postcode", "huisnummer", "contact" ]
+}
