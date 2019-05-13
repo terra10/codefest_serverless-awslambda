@@ -32,6 +32,8 @@ Actions:
 * add the following elements to provider section:
 ``` 
 provider:
+  name: aws
+  runtime: nodejs8.10
   region: eu-west-3
   stage: dev
   versionFunctions: false

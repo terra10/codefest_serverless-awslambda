@@ -1,9 +1,9 @@
-# dependencies
-node_modules/
-jspm_packages/
-lib
-
-# Serverless package output
-.serverless
+# package directories
+node_modules
+jspm_packages
 .idea
+
+# Serverless directories
+.serverless
+lib
 .webpack

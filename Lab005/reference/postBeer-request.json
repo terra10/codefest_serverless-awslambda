@@ -1,51 +1,24 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "postStartRegistratie POST request message",
+    "description": "POST my beer",
     "type": "object",
     "additionalProperties": false,
     "properties": {
-        "wgnummer": {
-            "description": "Werkgeversnummer",
+        "identification": {
+            "description": "unique id",
             "type": [
                 "string"
             ],
-            "pattern": "[0-9]{1,6}"
+            "pattern": "string"
         },
-        "postcode": {
-            "description": "De postcode van de werkgever zijn statutair adres",
+        "beer_date": {
+            "description": "date",
             "type": "string"
         },
-        "huisnummer": {
-            "description": "Het huisnummer van de werkgever zijn statutair adres",
-            "type": "number",
-            "minimum": 1
-        },
-        "contact": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties":
-            {
-                "contactMode": {
-                    "enum": [
-                        "afdeling",
-                        "persoon"
-                    ],
-                    "type": "string"
-                },
-                "afdeling": { "type": "string" },
-                "geslacht": {
-                    "enum": [
-                        "meneer",
-                        "mevrouw"
-                    ],
-                    "type": "string"
-                },
-                "voorletters": { "type": "string" },
-                "tussenvoegsel": { "type": "string" },
-                "achternaam": { "type": "string" }
-            },
-            "required": [ "afdeling", "geslacht", "voorletters", "tussenvoegsel", "achternaam" ]
+        "beer_name": {
+            "description": "beer_name",
+            "type": "string"
         }
     },
-    "required": [ "wgnummer", "postcode", "huisnummer", "contact" ]
+    "required": [ "identification", "beer_date", "beer_name" ]
 }

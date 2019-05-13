@@ -3,7 +3,7 @@
 ## Lab 003 - The first real Lambda Service
 
 ## The first POST function
-* copy the postBeer.ts from this Lab to the /src folder
+* copy the postBeerSimple.ts from this Lab to the /src folder
 
 Let's examine the file:
 * first we handle the imports, which are according to tslint alphabitized
@@ -11,7 +11,7 @@ Let's examine the file:
     * context
     * event
     * callback  
-* The main logic is placed in the _export async function postItem_ which the handler asynchronously calls (hence the await)
+* The main logic is placed in the _export async function_ which the handler asynchronously calls (hence the await)
 * The main logic starts with setting up the headers for the response
 * Then in the try we first retrieve the values from the POST request body
 * Second we define the parameters for the AWS SDK call to DynamoDB
@@ -22,7 +22,7 @@ Let's examine the file:
 Add the following lines underneath the functions: segment in your serverless.yml
 ``` 
 postBeer:
-  handler: lib/postBeer.handler
+  handler: lib/postBeerSimple.handler
   description: POST our new beers in DynamoDB
   events:
     - http:
@@ -96,3 +96,6 @@ So let's check:
 * Items in DynamoDB table: https://eu-west-3.console.aws.amazon.com/dynamodb
 * Logging in CloudWatch: https://eu-west-3.console.aws.amazon.com/cloudwatch
 * POST API in API Gateway: https://eu-west-3.console.aws.amazon.com/apigateway
+
+## The second POST function (you can skip this) but shows some advanced features
+Check the reference/postBeerAdvanced.ts file and discover how we can handle JSON objects which might contain optional or unknown elements which we always want to store without doing massive checks in our code.
