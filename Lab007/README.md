@@ -1,6 +1,6 @@
 # TERRA 10 Serverless labs
 
-## Lab 007 - Get just 1 beer
+## Lab 007 - Get just 1 beer (why?)
 
 ## Path Parameters
 We know have the identification of our beers, so let's how to use path parameters to just get 1 beer
