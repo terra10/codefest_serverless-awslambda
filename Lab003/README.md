@@ -87,7 +87,7 @@ Request:
 If all goes well you should receive a 201 with response:
 ``` 
 {
-    "id": "fd82d0f7-4f1f-11e9-ad55-8f9bc03fc504"
+    "id": "xxxxxxxxxxxxx"
 }
 ```
 
@@ -97,5 +97,5 @@ So let's check:
 * Logging in CloudWatch: https://eu-west-3.console.aws.amazon.com/cloudwatch
 * POST API in API Gateway: https://eu-west-3.console.aws.amazon.com/apigateway
 
-## The second POST function (you can skip this) but shows some advanced features
+## The second POST function (you can skip this  but shows some advanced features)
 Check the reference/postBeerAdvanced.ts file and discover how we can handle JSON objects which might contain optional or unknown elements which we always want to store without doing massive checks in our code.

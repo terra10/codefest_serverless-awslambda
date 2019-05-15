@@ -43,7 +43,7 @@ export async function postBeerSimple(event: APIGatewayProxyEvent) {
             Key: {
                 identification: uniqueId
             },
-            UpdateExpression: 'set beer_name = :item2, beer_date = :item2',
+            UpdateExpression: 'set beer_name = :item1, beer_date = :item2',
             ExpressionAttributeValues: {
                 ':item1': beer_name,
                 ':item2': beer_date

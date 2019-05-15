@@ -1,0 +1,26 @@
+Resources:
+  RequestValidatorOnlyBody:
+    Type: "AWS::ApiGateway::RequestValidator"
+    Properties:
+      Name: 'only-body'
+      RestApiId:
+        Ref: ApiGatewayRestApi
+      ValidateRequestBody: true
+      ValidateRequestParameters: false
+  RequestValidatorOnlyParameters:
+      Type: "AWS::ApiGateway::RequestValidator"
+      Properties:
+        Name: 'only-parameters'
+        RestApiId:
+          Ref: ApiGatewayRestApi
+        ValidateRequestBody: false
+        ValidateRequestParameters: true
+  GatewayResponse:
+    Type: 'AWS::ApiGateway::GatewayResponse'
+    Properties:
+      ResponseParameters:
+        gatewayresponse.header.WWW-Authenticate: "'Basic'"
+      ResponseType: UNAUTHORIZED
+      RestApiId:
+        Ref: 'ApiGatewayRestApi'
+      StatusCode: '401'

@@ -4,13 +4,6 @@
     "type": "object",
     "additionalProperties": false,
     "properties": {
-        "identification": {
-            "description": "unique id",
-            "type": [
-                "string"
-            ],
-            "pattern": "string"
-        },
         "beer_date": {
             "description": "date",
             "type": "string"
@@ -20,5 +13,5 @@
             "type": "string"
         }
     },
-    "required": [ "identification", "beer_date", "beer_name" ]
+    "required": [ "beer_date", "beer_name" ]
 }
