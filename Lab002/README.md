@@ -3,29 +3,29 @@
 ## Lab 002 - The first build & deploy
 
 ## Preparing
-We will need some more AWS magic so let's import the aws-sdk lib 
-* run: _npm install aws-sdk_
-* check the dependencies and devDependencies in package.json 
-This time we don't use the --save-dev because we will need this lib on run-time
+We will need some more AWS magic so let's import the _aws-sdk_ lib 
+* run: `npm install aws-sdk`
+* check the _dependencies_ and _devDependencies_ in package.json 
+This time we don't use the --save-dev because we will need this lib at runtime.
 
 ## Database
-We are going to store and get data from a DynamoDB table. We will provide with a AWS CloudFormation script containing the resources for the DynamoDB table.
-* copy /Lab002/reference/resource-dynamodb.yml to ./resources
-* edit the serverless.yml file and add a resources segment with a reference to the yml:
+We are going to store and get data from a DynamoDB table. Setting up this DB is easy with this AWS CloudFormation script containing the resources for the DynamoDB table.
+* copy _/Lab002/reference/resource-dynamodb.yml_ to _./resources_
+* edit the _serverless.yml_ file and add a _resources_ segment with a reference to the yml:
 ``` 
 resources:
     - ${file(resources/resources-dynamodb.yml)}
 ```
 We just told serverless that the project also includes some custom AWS CloudFormation resources on top of the generated serverless. 
 
-Lets check this by running:
+Let's check it by running this command:
 ``` 
 sls package
 ```
 The result should be a ./serverless folder containing a generated CloudFormation JSON file and a ZIP with our functions. 
 
-So let's deploy our Hello World lambda and our DynamoDB table with the Serverless framework
-Make sure your using a valid AWS Profile which has enough IAM permissions
+So let's deploy our Hello World lambda and our DynamoDB table with the Serverless framework.
+Make sure you're using a valid AWS Profile which has enough IAM permissions:
 ``` 
 export AWS_PROFILE=?????
 tsc && sls deploy
