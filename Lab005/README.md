@@ -13,12 +13,11 @@ We will need our first serverless plugins to make this happen.
 ``` 
 npm install serverless-aws-documentation --save-dev
 npm install serverless-reqvalidator-plugin --save-dev
-
 ```
 Check the package.json and see we will only need this plugin on DEV to generate decent CloudFormation, but not during runtime.
 
 ## Serverless configuration
-We will need to tell serverless to use the plugin, usually in the _custom_ section. So we add this to our serverless.yml:
+We will need to tell serverless to use the plugins, usually in the _custom_ section. So we add this to our serverless.yml:
 ``` 
 custom:
   documentation:
@@ -46,13 +45,13 @@ resources:
     - ${file(resources/resources-apigateway.yml)}
 ```
 
-So we have our models and out validators, now make sure the postBeer will use it by adding this
+So we have our models and our validators, now make sure the postBeer will use it by adding this:
 ``` 
 http:
   reqValidatorName: RequestValidatorOnlyBody
 ```
 
-We need to tell the serverless framework to also use both plugins so add them in the plugins section
+We need to tell the serverless framework to also use both plugins so add them to the _plugins_ section:
 ``` 
 plugins:
   - serverless-aws-documentation
