@@ -34,7 +34,7 @@ Actions:
 provider:
   name: aws
   runtime: nodejs8.10
-  region: eu-west-3
+  region: eu-central-1
   stage: dev
   versionFunctions: false
   logRetentionInDays: 5
