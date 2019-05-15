@@ -1,7 +1,7 @@
 # TERRA 10 Serverless labs
 
 ## Index of labs
-* [Lab000](Lab000)
+* [Lab000](Lab000) - Preparing your stuff
 * [Lab001](Lab001)
 * [Lab002](Lab002)
 * [Lab003](Lab003)
