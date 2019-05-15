@@ -9,7 +9,7 @@ npm install serverless -g
 serverless create --template aws-nodejs-typescript
 npm install
 ```
-What happened ? This created a boilerplate Serverless application that is technically ready to be deployed. 
+What happened? This created a boilerplate Serverless application that is technically ready to be deployed. 
 
 Lets check the result:
 * handler.ts
@@ -23,9 +23,9 @@ Lets check the result:
 ## serverless.yml
 The start of your serverless configuration. 
 Inspect:
-* name holds our unique project name which reflects everywhere including our AWS CloudFormation stack
-* functions contains our Lambda functions where we get a free HelloWorld examples
-* plugins contains the additional (opensource) plugins for the Serverless framework
+* _service / name_ holds our unique project name which reflects everywhere including our AWS CloudFormation stack
+* _functions_ contains our Lambda functions where we get a free HelloWorld examples
+* _plugins_ contains the additional (open source) plugins for the Serverless framework
 
 Actions:
 * change name from _aws-nodejs-typescript_ to _t10*-serverless_ with an unique ID
@@ -41,21 +41,21 @@ provider:
   deploymentBucket:
     name: serverlessdeployment.${self:provider.region}.terra10.io
 ```
-This:
-* deploy in the correct AWS region
+This will:
+* deploy to the correct AWS region
 * define our stage, which is DEV by default
-* disable versioning (otherwise we remain old versions of our Lambdas) 
-* Make sure we dont store the (CloudWatch) logging forever
+* disable versioning (otherwise we keep old versions of our Lambdas) 
+* make sure we don't store the (CloudWatch) logging forever
 * configure a fixed S3 bucket for the Serverless deployments
 
 ## package.json
-The node/npm configuration for your package dev, build and deploy. Check the dependencies and devDependencies section. They summarize the packages used for development and runtime.
+The node/npm configuration for your package dev, build and deploy. Check the _dependencies_ and _devDependencies_ sections. They list the packages used for development and runtime.
 
 ## package-lock.json
-Never edit, never touch, go away! Just check in after npm install and be afraid!
+Never edit, never touch this file, go away! Just check in after npm install and be afraid!
 
 ## handler.ts
-Our first generated function doing nothing much, but enjoy and if you are brave try changing the message result
+Our first generated function doing nothing much, but enjoy it and if you are brave, try changing the message result.
 
 ## Let's roll
 Run and check the result:
@@ -63,38 +63,38 @@ Run and check the result:
 serverless invoke local --function hello
 ```
 Explanation:
-* We use the serverless framework and webpack plugin to execute the typescript function locally
+* We use the serverless framework and webpack plugin to execute the typescript function locally.
 
 ## Finally
-We dont want all the functions in our root folder, so let's:
-* create a folder /src
-* move handler.ts to /src/handler.ts
+We don't want all the functions in our root folder, so let's:
+* create a folder `/src`
+* move _handler.ts_ to _/src/handler.ts_
 
 Since we are going to use TypeScript we want tslint for nice code, so:
-* run: _npm install tslint --save-dev_
-* create /tslint.json and copy the content from /Lab001/references
+* run: `npm install tslint --save-dev`
+* create _/tslint.json_ and copy the contents from _/Lab001/references/tslint.json_
 
 The default tsconfig.json is a bit minimalistic, so:
 * replace /tsconfig.json with the file from /Lab001/references
 
 We changed the output dir in tsconfig.json to /lib so we have to make sure to adjust the serverless configuration so:
-* open _serverless.yml_ 
-* change the hello function handler to : _lib/handler.hello_
+* open _serverless.yml_
+* change the hello function handler to : `lib/handler.hello`
 
 Let's run Typescript compile to check if our code is decent:
-* run: _tsc_
+* run: `tsc`
 
-We might see an error which shows the example template is not really clean code. The handler function, which is the entry from API Gateway to the AWS Lambda function contains a variable context which is never used. Our new tsconfig.json does not allow this so: 
-* add "_" in front of context, making the result like:
+We might see an error which shows the example template is not really clean code. The handler function, which is the entry from API Gateway to the AWS Lambda function, contains a variable context which is never used. Our new tsconfig.json does not allow this so: 
+* add `_` in front of the word `context`, making the result like this:
 ``` 
 export const hello: Handler = (event: APIGatewayEvent, _context: Context, cb: Callback) => {
 ```
-* run: _tsc_
-* check the /lib folder to see the compiled Javascript result which the Serverless framework will use
+* run: `tsc`
+* check the /lib folder to see the compiled Javascript result which in turn will be used by the Serverless framework.
 
 Result/Summary:
-* We know have a typescript lambda function
-* Which compiles with tsc to basic Javascript to /lib
-* Which is used by serverless.yml
+* We now have a Typescript lambda function
+* Which compiles with `tsc` to basic Javascript in /lib
+* Which in turn is used by serverless.yml
 
 
