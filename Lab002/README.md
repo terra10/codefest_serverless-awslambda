@@ -32,8 +32,8 @@ tsc && sls deploy
 ```
 So let's check:
 * S3 deployment bucket: https://s3.console.aws.amazon.com/s3/home
-* CloudFormation stack: https://eu-west-3.console.aws.amazon.com/cloudformation
-* DynamoDB table: https://eu-west-3.console.aws.amazon.com/dynamodb
-* API Gateway: https://eu-west-3.console.aws.amazon.com/apigateway
-* Hello World Lambda: https://eu-west-3.console.aws.amazon.com/lambda
+* CloudFormation stack: https://eu-central-1.console.aws.amazon.com/cloudformation
+* DynamoDB table: https://eu-central-1.console.aws.amazon.com/dynamodb
+* API Gateway: https://eu-central-1.console.aws.amazon.com/apigateway
+* Hello World Lambda: https://eu-central-1.console.aws.amazon.com/lambda
 

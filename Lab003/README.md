@@ -37,9 +37,9 @@ tsc && sls deploy
 
 ## API endpoint & REST call
 We will need the API endpoint from the AWS stage which is generated, so
-* Check the AWS API Gateway: https://eu-west-3.console.aws.amazon.com/apigateway/home#/apis
+* Check the AWS API Gateway: https://eu-central-1.console.aws.amazon.com/apigateway/home#/apis
 * Select: dev-t10*-serverless -> Stages -> Dev
-* There should be an invoke URL like: https://***********.execute-api.eu-west-3.amazonaws.com/dev
+* There should be an invoke URL like: https://***********.execute-api.eu-central-1.amazonaws.com/dev
 * Use a tool like Postman and fire a POST request to the url + /beer
 
 Request:
@@ -52,7 +52,7 @@ Request:
 If all goes "well" you should receive a 500 with response:
 ``` 
 {
-    "message": "User: arn:aws:sts::*:assumed-role/t10*-serverless-dev-eu-west-3-lambdaRole/t10a-serverless-dev-postBeer is not authorized to perform: dynamodb:UpdateItem on resource: arn:aws:dynamodb:eu-west-3:*:table/t10*-serverless"
+    "message": "User: arn:aws:sts::*:assumed-role/t10*-serverless-dev-eu-central-1-lambdaRole/t10a-serverless-dev-postBeer is not authorized to perform: dynamodb:UpdateItem on resource: arn:aws:dynamodb:eu-central-1:*:table/t10*-serverless"
 }
 ```
 
@@ -95,9 +95,9 @@ If all goes well you should receive a 201 with a response:
 
 ## Summary
 So let's check:
-* Items in DynamoDB table: https://eu-west-3.console.aws.amazon.com/dynamodb
-* Logging in CloudWatch: https://eu-west-3.console.aws.amazon.com/cloudwatch
-* POST API in API Gateway: https://eu-west-3.console.aws.amazon.com/apigateway
+* Items in DynamoDB table: https://eu-central-1.console.aws.amazon.com/dynamodb
+* Logging in CloudWatch: https://eu-central-1.console.aws.amazon.com/cloudwatch
+* POST API in API Gateway: https://eu-central-1.console.aws.amazon.com/apigateway
 
 ## The second POST function (you can skip this but it shows some advanced features)
 Check the reference/postBeerAdvanced.ts file and see how we can handle JSON objects which might contain optional or unknown elements which we always want to store without doing massive amounts of checks in our code.
