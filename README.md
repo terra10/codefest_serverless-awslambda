@@ -9,3 +9,4 @@
 * [Lab005](Lab005) - So many models
 * [Lab006](Lab006) - Get all beers
 * [Lab007](Lab007) - Get just 1 beer (why?)
+* [Lab008](Lab008) - Packaging please
