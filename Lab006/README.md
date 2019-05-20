@@ -3,9 +3,9 @@
 ## Lab 006 - Get all beers
 
 ## GET me some beers
-If we understand the postBeerSimple typescript from lab003 and the functions segment in the serverless.yml we will now build a simple GET to retrieve all records. 
+When we understand the postBeerSimple typescript from [Lab003](../Lab003) and the _functions_ segment in the serverless.yml we can now build a simple GET to retrieve all records. 
 
-Look at below code example to create the params for the cocumentClient.scan and the execution.
+Look at below code example to create the params for the documentClient.scan and the execution.
 
 ```
     try {
@@ -22,7 +22,7 @@ Look at below code example to create the params for the cocumentClient.scan and 
     }
 ```
 
-Create a src/getBeers.ts and use above example. Run tsc and make sure to add the function w
+Create a src/getBeers.ts and use above code. Run `tsc` and make sure to add the function:
 ```
   getBeers:
     handler: lib/getBeers.handler
@@ -34,10 +34,10 @@ Create a src/getBeers.ts and use above example. Run tsc and make sure to add the
           private: true
 ```
 
-Remember the IAM role segment in serverless.yml where we now also need dynamodb:Scan
+Please note the IAM role segment in serverless.yml where we now also need dynamodb:Scan as an added role.
 
 ## Test
-Compile and deploy (tsc && serverless deploy). Then use Postmen to execute a GET on /beer to get the list of beers
+Compile and deploy (`tsc && serverless deploy`). Then use Postman to execute a GET on /beer to get the list of beers.
 
 ## Solution
-If you want check the /solution/getBeers.ts
+If you want check the /solution/getBeers.ts.
