@@ -3,9 +3,9 @@
 ## Lab 007 - Get just 1 beer (why?)
 
 ## Path Parameters
-We know have the identification of our beers, so let's how to use path parameters to just get 1 beer
+We now have, through the completion of [Lab006](../Lab006), the identification of all of our beers, so let's use path parameters to just get 1 beer al 'all' is a little too much sometimes. ;-)
 
-Create a src/getBeer.ts and use below example
+Create a `src/getBeer.ts` and use below example code:
 
 ```
     try {
@@ -32,7 +32,7 @@ Create a src/getBeer.ts and use below example
         };
 ```
 
-Run tsc and make sure to add the function
+Run `tsc` and make sure to add the function to serverless.yml:
 ```
   getBeer:
     handler: lib/getBeer.handler
@@ -44,13 +44,13 @@ Run tsc and make sure to add the function
           private: true
 ```
 
-Make sure you understand the path parameter mentioned here and how it is exposed from the API Gateway event in the code. You should also check the API Gateway in the AWS Console. 
+Make sure you understand the path parameter mentioned here and how it is exposed from the API Gateway event in the code. You should also check the API Gateway in the AWS Console.
 
 ## IAM
-Remember the IAM role segment in serverless.yml where we now also need dynamodb:GetItem
+Remember to add this to the IAM role segment in serverless.yml where we now also need dynamodb:GetItem.
 
 ## Test
-Compile and deploy (tsc && serverless deploy). Then use Postmen to execute a GET on /beer/xxxxx to get 1 of the beers from DynamoDB
+Compile and deploy (`tsc && serverless deploy`). Then use Postman to execute a GET on /beer/xxxxx to get 1 of the beers from DynamoDB.
 
 ## Solution
-If you want check the /solution/getBeer.ts
+If you want check the /solution/getBeer.ts.
